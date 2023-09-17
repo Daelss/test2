@@ -1,27 +1,22 @@
-import random
+a = input('Введите символы')
 
-player = input("Выберите: камень, ножницы или бумага: ")
+b = ''
 
-bot = ["камень", "бумага", "ножницы"]
-bot_action = random.choice(bot)
+c = 0
+d = ''
 
-if player != bot:
-    print("Вы ввели не то, попробуйте ещё раз")
-
-if player == bot_action:
-    print(f"Оба пользователя выбрали {player}. Ничья!!")
-elif player == "камень":
-    if bot_action == "ножницы":
-        print("Камень бьет ножницы! Вы победили!")
+for s in a:
+    if not d:
+        d = s
+        c += 1
     else:
-        print("Бумага оборачивает камень! Вы проиграли.")
-elif player == "бумага":
-    if bot_action == "камень":
-        print("Бумага оборачивает камень! Вы победили!")
-    else:
-        print("Ножницы режут бумагу! Вы проиграли.")
-elif player == "ножницы":
-    if bot_action == "бумага":
-        print("Ножницы режут бумагу! Вы победили!")
-    else:
-        print("Камень бьет ножницы! Вы проиграли.")
+        if s != d:
+            b += d + str(c)
+            d = s
+            c = 1
+        else:
+            c += 1
+
+b += d + str(c)
+
+print(b)
